@@ -1,0 +1,39 @@
+[build-system]
+# This section is crucial, especially the numpy part from your hint.
+# It tells pip what tools are needed to build your package.
+requires = [
+    "setuptools>=61.0",
+    "numpy"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+# This is the metadata about your package
+name = "ligotools"
+version = "0.0.1"
+description = "A package for analyzing LIGO data."
+readme = "README.md"
+requires-python = ">=3.9"
+
+# As requested, fill in <your name> and <your email>
+authors = [
+  { name="Ligo Scientific Collaboration (LSC) and <your name>", email="<your-email@example.com>" }
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+]
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "h5py",
+    "matplotlib"
+]
+
+[project.urls]
+Homepage = "https://github.com/USERNAME/REPONAME" # Optional: Update this
+Issues   = "https://github.com/USERNAME/REPONAME/issues" # Optional: Update this

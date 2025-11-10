@@ -1,0 +1,40 @@
+# This file automatically builds and deploys your website
+# every time you push to the 'main' branch, as per Lab 7.
+
+name: Deploy MyST Website to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # Trigger on pushes to your main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10" # A stable Python version
+
+      - name: Install MyST (the website builder)
+        run: pip install myst-nb
+
+      - name: Install your local package and its dependencies
+        # This is CRITICAL. It runs `pip install .`
+        # which installs `ligotools` from your pyproject.toml
+        # so the notebook build can find `from ligotools import ...`
+        run: pip install .
+
+      - name: Build MyST website
+        # This command reads myst.yml and builds the HTML
+        run: myst build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # This must match the output_dir in your myst.yml
+          publish_dir: _build/html

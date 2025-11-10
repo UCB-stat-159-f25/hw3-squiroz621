@@ -1,0 +1,7 @@
+# This file controls your website's navigation tabs
+# This fulfills the requirement for a landing page and the notebook
+
+format: jb-book
+root: index
+chapters:
+  - file: LOSC_Event_tutorial

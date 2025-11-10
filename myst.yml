@@ -1,0 +1,21 @@
+# This file configures your MyST project
+version: 1
+project:
+  # This title will be used in your website's header
+  title: LIGO Gravitational Wave Analysis
+  description: An analysis of LIGO data from the LOSC Event Tutorial.
+  authors:
+    - name: "Ligo Scientific Collaboration (LSC) and Stephanie Quiroz"
+  
+  # Link to your GitHub repo
+  github: https://github.com/UCB-stat-159-f25/hw3-squiroz621
+  
+  # Binder link setup
+  binder: https://mybinder.org/v2/gh/UCB-stat-159-f25/hw3-squiroz621/main
+
+site:
+  
+  # This adds the "Launch Binder" button to the top of your website
+  actions:
+    - title: Launch Binder
+      url: https://mybinder.org/v2/gh/UCB-stat-159-f25/hw3-squiroz621/main
